@@ -1,0 +1,25 @@
+centrelink_payment = float(input("Enter your Centrelink (JobSeeker) payment before income test: $"))
+work_payment = float(input("Enter your fortnightly work income: $"))
+
+if work_payment <= 150:
+    # No reduction
+    final_payment = centrelink_payment
+    note = "No deduction – work income is below or equal to $150."
+elif 150 < work_payment <= 256:
+    reduction = (work_payment - 150) * 0.5  # $0.50 per dollar over $150
+    final_payment = centrelink_payment - reduction
+    note = f"Reduced by $0.50 per dollar on the amount over $150: reduction = ${reduction:.2f}"
+else:  # work_payment > 256
+    # Two-tier reduction:
+    reduction_mid = (256 - 150) * 0.5      # First segment reduction
+    reduction_high = (work_payment - 256) * 0.6  # Excess segment
+    total_reduction = reduction_mid + reduction_high
+    final_payment = centrelink_payment - total_reduction
+    note = (
+        f"First $106 over $150 reduced at $0.50/d (${reduction_mid:.2f}), "
+        f"then excess over $256 reduced at $0.60/d (${reduction_high:.2f}), "
+        f"total reduction = ${total_reduction:.2f}"
+    )
+
+print("\n" + note)
+print(f"Centrelink payment after income test: ${final_payment:.2f}")
