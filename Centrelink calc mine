@@ -1,0 +1,9 @@
+centrelink_pay = float(input("Centrelink pay:"))
+work_pay = float(input("Work pay:"))
+if work_pay <= 150:
+    print("Centrelink pay: " + str(centrelink_pay))
+elif work_pay > 150 and work_pay <= 256:
+    centrelink_pay = centrelink_pay - work_pay * 0.5
+elif work_pay > 256 :
+    centrelink_pay = centrelink_pay - work_pay * 0.6
+print("Centrelink pay: " + str(centrelink_pay))
