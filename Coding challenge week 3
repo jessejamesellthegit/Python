@@ -1,0 +1,13 @@
+isbn = str(input(" Enter ISBN "))
+
+
+if isbn[:3] == '978':
+    isbn = isbn[3:]
+if int(isbn) in range(0,2000000000):
+    print("English")
+elif int(isbn) in range(2000000000,3000000000):
+    print("French")
+elif int(isbn) in range(3000000000,4000000000):
+    print("German")
+elif int(isbn) >4000000000:
+    print ("Unknown")
