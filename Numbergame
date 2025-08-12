@@ -1,0 +1,35 @@
+import random
+
+random_number = str(random.randint(1, 100))
+guesses_remaining = 9
+def player_guess (guess, random_number, guesses_remaining):
+
+    if random_number == guess:
+        print("Correct!")
+        return guess
+
+
+    elif guess > random_number and int(guess) <100:
+
+        print("Lower ")
+        print("Guesses remaining: " + str(guesses_remaining))
+
+        return guess
+    elif guess < random_number and int(guess) <100:
+
+        print("Higher ")
+        print("Guesses remaining: " + str(guesses_remaining))
+        return guess
+    elif int(guess) > 100:
+        print("Woah! Too high!" + " Guesses remaining: " + str(guesses_remaining))
+    
+
+if __name__ == "__main__":
+    guess = 0
+    while guesses_remaining >-1:
+        guess = player_guess(input("Guess a number between 1 and 100: "),random_number, guesses_remaining)
+        guesses_remaining -=1
+        if guesses_remaining == -1:
+
+            print("Game Over")
+            break
