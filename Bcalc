@@ -1,0 +1,18 @@
+import os
+
+
+open_file = open('table.txt','w')
+
+
+start = int(input('Start: '))
+stop = int(input('Stop: '))
+step = 1 if start <= stop else -1
+number = list(range(start,stop + step,step))
+
+for x in number:
+    open_file.write[f'{number:<04b}']
+
+
+# Read and display the contents of the file.
+table_file_readonly = open('table.txt', 'r')
+print(table_file_readonly.read(), end='')
